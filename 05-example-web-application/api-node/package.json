@@ -1,4 +1,4 @@
-{
+  {
   "name": "api-node",
   "version": "1.0.0",
   "description": "simple api that connects to postgres",

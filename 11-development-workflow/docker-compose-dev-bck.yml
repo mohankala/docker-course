@@ -53,15 +53,17 @@ services:
     ports:
       - 3000:3000
     restart: unless-stopped
-  aapi-golang:
-    labels:
-      shipyard.route: '/api/golang/'
-      shipyard.route.rewrite: true
+  api-golang:
     image: api-golang
     build:
       context: ../05-example-web-application/api-golang/
-      dockerfile: ../../06-building-container-images/api-golang/Dockerfile.6
+      dockerfile: ../../06-building-container-images/api-golang/Dockerfile.8
+      target: dev
     init: true
+    volumes:
+      - type: bind
+        source: ../05-example-web-application/api-golang/
+        target: /app/
     depends_on:
       - db
     environment:
